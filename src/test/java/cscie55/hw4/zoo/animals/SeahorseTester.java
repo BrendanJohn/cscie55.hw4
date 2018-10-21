@@ -10,7 +10,7 @@ public class SeahorseTester
 {
 
     // here, I am using each of the 4 defined constructors
-    Animal a1 = new Seahorse(); // default constuctor
+    Animal a1 = new Seahorse(); // default constructor
     Animal a2 = new Seahorse(getRandomBetween(25,30)); // using constructor that takes int for age w/ generated numb
     Animal a3 = new Seahorse(2,"mini horse"); // using constructor with age and name
     Animal a4 = new Seahorse(341, "Wise old horse", new String[]{"goats","cows","children", "algae"}); // using ALL params

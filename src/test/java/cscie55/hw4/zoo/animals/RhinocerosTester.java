@@ -10,7 +10,7 @@ public class RhinocerosTester
 {
 
     // here, I am using each of the 4 defined constructors
-    Animal a1 = new Rhinoceros(); // default constuctor
+    Animal a1 = new Rhinoceros(); // default constructor
     Animal a2 = new Rhinoceros(getRandomBetween(25,30)); // using constructor that takes int for age w/ generated numb
     Animal a3 = new Rhinoceros(2,"BabyRhino"); // using constructor with age and name
     Animal a4 = new Rhinoceros(140, "theOldestRhino", new String[]{"goats","cows","fish", "frogs"}); // using ALL params

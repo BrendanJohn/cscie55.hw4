@@ -10,7 +10,7 @@ public class PlatypusTester
 {
 
     // here, I am using each of the 4 defined constructors
-    Animal a1 = new Platypus(); // default constuctor
+    Animal a1 = new Platypus(); // default constructor
     Animal a2 = new Platypus(getRandomBetween(25,30)); // using constructor that takes int for age w/ generated numb
     Animal a3 = new Platypus(2,"BabyPlaty"); // using constructor with age and name
     Animal a4 = new Platypus(140, "theOldestPlaty", new String[]{"goats","cows","fish", "frogs"}); // using ALL params
