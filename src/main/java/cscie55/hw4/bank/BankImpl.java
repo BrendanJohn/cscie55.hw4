@@ -6,14 +6,13 @@ import java.util.Set;
 
 public class BankImpl implements Bank{
 	private long totalBalances;
-	private long amount;
 	Set<Account> accounts = new HashSet<>();
 
 
 
 	@Override
 	public long getTotalBalances() {
-		//iterates over set passengers and removes them if destination floor matches current floor
+		//iterates over set of accounts and sums the balance
 		Iterator<Account> account = accounts.iterator();
 		while (account.hasNext()) {
                  this.totalBalances = account.next().getBalance() + totalBalances;
@@ -44,8 +43,29 @@ public class BankImpl implements Bank{
 
 	@Override
 	public void transferWithoutLocking(int fromId, int toId, long amount) {
-		if (accounts.contains(fromId)) {
-//do something
+		//iterates over set of accounts and finds the right accounts to withdraw
+		for(Iterator<Account> account = accounts.iterator(); account.hasNext();) {
+            Account current = account.next();
+            if (current.getId() == fromId) {
+            	try {
+            		current.withdraw(amount);
+				}
+            	catch(InsufficientFundsException I){
+            		System.out.println("Insufficient funds");
+				}
+			}
+	}
+		//iterates over set of accounts and finds the right accounts to deposit
+		for(Iterator<Account> account = accounts.iterator(); account.hasNext();) {
+			Account current = account.next();
+			if (current.getId() == toId) {
+				try {
+					current.deposit(amount);
+				}
+				catch(IllegalArgumentException I){
+					System.out.println("deposit amount must be greater than zero");
+				}
+			}
 		}
 	}
 
