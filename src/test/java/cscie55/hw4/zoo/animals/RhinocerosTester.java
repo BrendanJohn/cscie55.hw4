@@ -16,7 +16,7 @@ public class RhinocerosTester
     Animal a4 = new Rhinoceros(140, "theOldestRhino", new String[]{"goats","cows","fish", "frogs"}); // using ALL params
 
     @Test
-    public void testDefaultPlaty(){
+    public void testDefaultRhino(){
         assertEquals(2,a1.getAge());// should return default age
         assertEquals("Daniel" ,a1.getName());// should return default name
         assertEquals("Lettuce", a1.getFavoriteFoods().get(0));// should return default menu

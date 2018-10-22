@@ -19,6 +19,26 @@ public class Seahorse extends Animal{
     //Seahorse specific fields
     private String gender;
 
+    private ArrayList<String> favoriteFoods;
+
+    public Seahorse() { // when empty constructor called
+        this(3); // we fill in first param and pass it to the second constructor
+    }
+
+    public Seahorse(int age){ // when second constructor is called, age only is given.
+        this(age, "Mr Ed"); // We fill in default name and pass to third...
+    }
+
+    public Seahorse(int age, String name) { // when third constructor, use params 1 and 2
+        this(age, name, new String[]{"plankton"}); // and add String[] food and call 4th constructor
+
+    }
+
+    // NOTE: Only NOW do I call super
+    public Seahorse(int age, String name, String[] favoriteFoods) { // The ultimate constructor. Pass it ALL to super()
+        super(age, name, favoriteFoods);
+    }
+
     /**
      * constructor, instantiates favaoriteFoods, age, and color<p>
      * current favoriteFoods List type is ArrayList
