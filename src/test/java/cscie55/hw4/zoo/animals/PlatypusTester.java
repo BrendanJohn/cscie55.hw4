@@ -13,7 +13,7 @@ public class PlatypusTester
     Animal a1 = new Platypus(); // default constuctor
     Animal a2 = new Platypus(getRandomBetween(25,30)); // using constructor that takes int for age w/ generated numb
     Animal a3 = new Platypus(2,"BabyPlaty"); // using constructor with age and name
-    Animal a4 = new Platypus(140, "theOldestPlaty", new String[]{"goats","cows","children", "sleeping adults"}); // using ALL params
+    Animal a4 = new Platypus(140, "theOldestPlaty", new String[]{"goats","cows","fish", "frogs"}); // using ALL params
 
     @Test
     public void testDefaultPlaty(){
@@ -39,6 +39,6 @@ public class PlatypusTester
     public void testPlatyConstr4(){
         assertEquals(140,a4.getAge());// should return provided age
         assertEquals("theOldestPlaty" ,a4.getName());// should return provided name
-        assertEquals("goats", a4.getFavoriteFoods().get(0));// should return the menu provided
+        assertEquals("frogs", a4.getFavoriteFoods().get(3));// should return the menu provided
     }
 }
