@@ -46,30 +46,30 @@ public class BankTester
             // Expected
         }
     }
-//
-//    @Test
-//    public void testNegativeDeposit()
-//    {
-//        Account account = new AccountImpl(0);
-//        try {
-//            account.deposit(-1);
-//            fail();
-//        } catch (IllegalArgumentException e) {
-//            // Expected
-//        }
-//    }
-//
-//    @Test
-//    public void testPositiveDeposit()
-//    {
-//        Account account = new AccountImpl(0);
-//        try {
-//            account.deposit(1);
-//            assertEquals(1, account.getBalance());
-//        } catch (IllegalArgumentException e) {
-//            fail();
-//        }
-//    }
+
+    @Test
+    public void testNegativeDeposit()
+    {
+        Account account = new AccountImpl(0);
+        try {
+            account.deposit(-1);
+            fail();
+        } catch (IllegalArgumentException e) {
+            // Expected
+        }
+    }
+
+    @Test
+    public void testPositiveDeposit()
+    {
+        Account account = new AccountImpl(0);
+        try {
+            account.deposit(1);
+            assertEquals(1, account.getBalance());
+        } catch (IllegalArgumentException e) {
+            fail();
+        }
+    }
 //
 //    @Test
 //    public void testZeroWithdrawal()

@@ -8,12 +8,16 @@ public class AccountImpl implements Account{
     }
 
     public void deposit(long amount){
-        if (amount == 0){
-            throw new IllegalArgumentException("deposit must be greater than zero");
+        if (amount <= 0){
+            throw new IllegalArgumentException("deposit amount must be greater than zero");
+        }
+        else {
+            this.balance = amount;
         }
 
     }
-    public void getBalance(){
+    public long getBalance(){
+        return this.balance;
     }
     public void withdraw(long amount){
 
