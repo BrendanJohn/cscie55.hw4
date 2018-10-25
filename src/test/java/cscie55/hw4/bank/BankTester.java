@@ -6,7 +6,7 @@ package cscie55.hw4.bank;
 //import cscie55.hw4.bank.BankImpl;
 //import cscie55.hw4.bank.DuplicateAccountException;
 //import cscie55.hw4.bank.InsufficientFundsException;
-//import org.junit.Test;
+import org.junit.Test;
 
 import java.util.Random;
 
@@ -35,17 +35,17 @@ import static org.junit.Assert.fail;
 
 public class BankTester
 {
-//    @Test
-//    public void testZeroDeposit()
-//    {
-//        Account account = new AccountImpl(0);
-//        try {
-//            account.deposit(0);
-//            fail();
-//        } catch (IllegalArgumentException e) {
-//            // Expected
-//        }
-//    }
+    @Test
+    public void testZeroDeposit()
+    {
+        Account account = new AccountImpl(0);
+        try {
+            account.deposit(0);
+            fail();
+        } catch (IllegalArgumentException e) {
+            // Expected
+        }
+    }
 //
 //    @Test
 //    public void testNegativeDeposit()
