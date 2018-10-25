@@ -70,34 +70,34 @@ public class BankTester
             fail();
         }
     }
-//
-//    @Test
-//    public void testZeroWithdrawal()
-//    {
-//        Account account = new AccountImpl(0);
-//        try {
-//            account.withdraw(0);
-//            fail();
-//        } catch (IllegalArgumentException e) {
-//            // Expected
-//        } catch (InsufficientFundsException e) {
-//            fail();
-//        }
-//    }
-//
-//    @Test
-//    public void testNegativeWithdrawal()
-//    {
-//        Account account = new AccountImpl(0);
-//        try {
-//            account.withdraw(-1);
-//            fail();
-//        } catch (IllegalArgumentException e) {
-//            // Expected
-//        } catch (InsufficientFundsException e) {
-//            fail();
-//        }
-//    }
+
+    @Test
+    public void testZeroWithdrawal()
+    {
+        Account account = new AccountImpl(0);
+        try {
+            account.withdraw(0);
+            fail();
+        } catch (IllegalArgumentException e) {
+            // Expected
+        } catch (InsufficientFundsException e) {
+            fail();
+        }
+    }
+
+    @Test
+    public void testNegativeWithdrawal()
+    {
+        Account account = new AccountImpl(0);
+        try {
+            account.withdraw(-1);
+            fail();
+        } catch (IllegalArgumentException e) {
+            // Expected
+        } catch (InsufficientFundsException e) {
+            fail();
+        }
+    }
 //
 //    @Test
 //    public void testInsufficientFundsWithdrawal()

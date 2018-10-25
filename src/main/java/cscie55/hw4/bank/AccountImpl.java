@@ -20,6 +20,12 @@ public class AccountImpl implements Account{
         return this.balance;
     }
     public void withdraw(long amount){
+        if (amount <= 0){
+            throw new IllegalArgumentException("withdraw amount must be greater than zero");
+        }
+        else {
+            this.balance = balance - amount;
+        }
 
     }
 
