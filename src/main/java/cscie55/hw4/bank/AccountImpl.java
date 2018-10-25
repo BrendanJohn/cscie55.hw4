@@ -19,11 +19,16 @@ public class AccountImpl implements Account{
     public long getBalance(){
         return this.balance;
     }
-    public void withdraw(long amount){
+    public void withdraw(long amount) throws InsufficientFundsException {
         if (amount <= 0){
             throw new IllegalArgumentException("withdraw amount must be greater than zero");
         }
-        else {
+        else if (amount > this.balance)
+        {
+            throw new InsufficientFundsException(this, amount);
+        }
+        else
+        {
             this.balance = balance - amount;
         }
 
