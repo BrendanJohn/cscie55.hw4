@@ -1,11 +1,11 @@
 package cscie55.hw4.bank;
 
-//import cscie55.hw4.bank.Account;
-//import cscie55.hw4.bank.AccountImpl;
-//import cscie55.hw4.bank.Bank;
-//import cscie55.hw4.bank.BankImpl;
-//import cscie55.hw4.bank.DuplicateAccountException;
-//import cscie55.hw4.bank.InsufficientFundsException;
+import cscie55.hw4.bank.Account;
+import cscie55.hw4.bank.AccountImpl;
+import cscie55.hw4.bank.Bank;
+import cscie55.hw4.bank.BankImpl;
+import cscie55.hw4.bank.DuplicateAccountException;
+import cscie55.hw4.bank.InsufficientFundsException;
 import org.junit.Test;
 
 import java.util.Random;
@@ -113,39 +113,39 @@ public class BankTester
             // Expected
         }
     }
-//
-//    @Test
-//    public void testPositiveWithdrawal()
-//    {
-//        Account account = new AccountImpl(0);
-//        try {
-//            account.deposit(3);
-//            account.withdraw(1);
-//            assertEquals(2, account.getBalance());
-//        } catch (IllegalArgumentException e) {
-//            fail();
-//        } catch (InsufficientFundsException e) {
-//            fail();
-//        }
-//    }
 
-//    @Test
-//    public void testDuplicateAccounts()
-//    {
-//        Bank bank = new BankImpl();
-//        Account account = new AccountImpl(0);
-//        try {
-//            bank.addAccount(account);
-//        } catch (DuplicateAccountException e) {
-//            fail();
-//        }
-//        try {
-//            bank.addAccount(account);
-//            fail();
-//        } catch (DuplicateAccountException e) {
-//            // Expected
-//        }
-//    }
+    @Test
+    public void testPositiveWithdrawal()
+    {
+        Account account = new AccountImpl(0);
+        try {
+            account.deposit(3);
+            account.withdraw(1);
+            assertEquals(2, account.getBalance());
+        } catch (IllegalArgumentException e) {
+            fail();
+        } catch (InsufficientFundsException e) {
+            fail();
+        }
+    }
+
+    @Test
+    public void testDuplicateAccounts()
+    {
+        Bank bank = new BankImpl();
+        Account account = new AccountImpl(0);
+        try {
+            bank.addAccount(account);
+        } catch (DuplicateAccountException e) {
+            fail();
+        }
+        try {
+            bank.addAccount(account);
+            fail();
+        } catch (DuplicateAccountException e) {
+            // Expected
+        }
+    }
 
 //    @Test
 //    public void testPerformance() throws InterruptedException, DuplicateAccountException
