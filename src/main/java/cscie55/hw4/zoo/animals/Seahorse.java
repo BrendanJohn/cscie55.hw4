@@ -13,7 +13,6 @@ import java.util.ArrayList;
 /**
 * Seahorse class provides information about Seahorse Animals<p>
 * currently provides no error checking
-
 */
 public class Seahorse extends Animal{
     //Seahorse specific fields
