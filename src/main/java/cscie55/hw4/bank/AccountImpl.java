@@ -8,6 +8,7 @@ package cscie55.hw4.bank;
  */
 public class AccountImpl implements Account{
     private Long balance;
+	private int accountId;
 
 
     public AccountImpl(long value){
@@ -48,7 +49,7 @@ public class AccountImpl implements Account{
 
 	@Override
     public int getId(){
-        return 0;
+        return this.accountId;
     }
 
 }

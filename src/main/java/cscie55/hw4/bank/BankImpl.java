@@ -1,15 +1,15 @@
 package cscie55.hw4.bank;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class BankImpl implements Bank{
 	private long totalBalances;
-	private Account account;
 	private int fromId;
 	private int toId;
 	private long amount;
-	List<Account> accountList = new ArrayList<>();
+	Set<Account> accounts = new HashSet<>();
+
 
 
 	@Override
@@ -19,7 +19,13 @@ public class BankImpl implements Bank{
 
 	@Override
 	public void addAccount (Account account) throws DuplicateAccountException{
-        accountList.add(account);
+		if(accounts.contains(account)){
+			throw new DuplicateAccountException(account.getId());
+		}
+		else {
+			accounts.add(account);
+		}
+
 	}
 
 	@Override
@@ -39,7 +45,7 @@ public class BankImpl implements Bank{
 
 	@Override
 	public int getNumberOfAccounts(){
-		return 1;
+		return accounts.size();
 	}
 
 	public void BankImpl(){
