@@ -1,6 +1,7 @@
 package cscie55.hw4.bank;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 public class BankImpl implements Bank{
@@ -12,7 +13,12 @@ public class BankImpl implements Bank{
 
 	@Override
 	public long getTotalBalances() {
-		return totalBalances;
+		//iterates over set passengers and removes them if destination floor matches current floor
+		Iterator<Account> account = accounts.iterator();
+		while (account.hasNext()) {
+                 this.totalBalances = account.next().getBalance() + totalBalances;
+			}
+			return totalBalances;
 	}
 
 	@Override
