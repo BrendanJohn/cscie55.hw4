@@ -7,12 +7,14 @@ package cscie55.hw4.bank;
  * HW 4
  */
 public class AccountImpl implements Account{
-    private Long balance;
+    private Long balance = 0L;
 	private int accountId;
+	private int fromId;
+	private int toId;
 
 
-    public AccountImpl(long value){
-        this.balance = value;
+    public AccountImpl(int id){
+        this.accountId = id;
     }
 
 	@Override
@@ -21,7 +23,7 @@ public class AccountImpl implements Account{
             throw new IllegalArgumentException("deposit amount must be greater than zero");
         }
         else {
-            this.balance = amount;
+            this.balance = this.balance + amount;
         }
 
     }

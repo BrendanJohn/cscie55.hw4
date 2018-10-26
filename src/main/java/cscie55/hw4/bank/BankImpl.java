@@ -5,8 +5,6 @@ import java.util.Set;
 
 public class BankImpl implements Bank{
 	private long totalBalances;
-	private int fromId;
-	private int toId;
 	private long amount;
 	Set<Account> accounts = new HashSet<>();
 
@@ -40,7 +38,9 @@ public class BankImpl implements Bank{
 
 	@Override
 	public void transferWithoutLocking(int fromId, int toId, long amount) {
-
+		if (accounts.contains(fromId)) {
+//do something
+		}
 	}
 
 	@Override
