@@ -8,14 +8,22 @@ package cscie55.hw4.bank;
  */
 public class AccountImpl implements Account{
     private Long balance = 0L;
-	private int accountId;
-	private int fromId;
-	private int toId;
+	private int accountId = 0;
 
 
-    public AccountImpl(int id){
+    //default constructor
+	public AccountImpl(){
+    }
+
+	public AccountImpl(int id){
         this.accountId = id;
     }
+
+    public AccountImpl(int id, long balance){
+        this.accountId = id;
+        this.balance = balance;
+    }
+
 
 	@Override
     public void deposit(long amount){
@@ -24,6 +32,7 @@ public class AccountImpl implements Account{
         }
         else {
             this.balance = this.balance + amount;
+            System.out.println("Deposit completed successfully");
         }
 
     }
@@ -45,6 +54,7 @@ public class AccountImpl implements Account{
         else
         {
             this.balance = balance - amount;
+            System.out.println("Withdraw completed successfully");
         }
 
     }
@@ -53,6 +63,7 @@ public class AccountImpl implements Account{
     public int getId(){
         return this.accountId;
     }
+
 
 }
 

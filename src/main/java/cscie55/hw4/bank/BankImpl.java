@@ -1,80 +1,70 @@
 package cscie55.hw4.bank;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.HashMap;
 
-public class BankImpl implements Bank{
-	private long totalBalances;
-	Set<Account> accounts = new HashSet<>();
 
+public class BankImpl implements Bank {
+	private long totalBalances = 0L;
+
+	private HashMap<Integer, Account> accountsMap = new HashMap<Integer, Account> ();
 
 
 	@Override
 	public long getTotalBalances() {
-		//iterates over set of accounts and sums the balance
-		Iterator<Account> account = accounts.iterator();
-		while (account.hasNext()) {
-                 this.totalBalances = account.next().getBalance() + totalBalances;
-			}
-			return totalBalances;
+        return 0l;
+		//return accountsMap.values().getBalance.stream().mapToLong(Long::longValue).sum();
 	}
 
 	@Override
 	public void addAccount (Account account) throws DuplicateAccountException{
-		if(accounts.contains(account)){
-			throw new DuplicateAccountException(account.getId());
+        if (accountsMap.containsKey(account.getId())){
+        	throw new DuplicateAccountException(account.getId());
 		}
 		else {
-			accounts.add(account);
+			accountsMap.put(account.getId(), account);
 		}
 
-	}
-
-	@Override
-	public void transferLockingBank(int fromId, int toId, long amount) {
 
 	}
 
 	@Override
-	public void transferLockingAccounts(int fromId, int toId, long amount){
-
-	}
-
-	@Override
-	public void transferWithoutLocking(int fromId, int toId, long amount) {
-		//iterates over set of accounts and finds the right accounts to withdraw
-		for(Iterator<Account> account = accounts.iterator(); account.hasNext();) {
-            Account current = account.next();
-            if (current.getId() == fromId) {
-            	try {
-            		current.withdraw(amount);
-				}
-            	catch(InsufficientFundsException I){
-            		System.out.println("Insufficient funds");
-				}
-			}
-	}
-		//iterates over set of accounts and finds the right accounts to deposit
-		for(Iterator<Account> account = accounts.iterator(); account.hasNext();) {
-			Account current = account.next();
-			if (current.getId() == toId) {
-				try {
-					current.deposit(amount);
-				}
-				catch(IllegalArgumentException I){
-					System.out.println("deposit amount must be greater than zero");
-				}
-			}
+	public void transferLockingBank(int fromId, int toId, long amount)
+			throws InsufficientFundsException{
+		synchronized (this)	{
+			accountsMap.get(fromId).withdraw(amount);
+			accountsMap.get(toId).deposit(amount);
 		}
+
+
+		}
+
+
+	@Override
+	public void transferLockingAccounts(int fromId, int toId, long amount)
+			throws InsufficientFundsException{
+		Account fromAccount = accountsMap.get(fromId);
+		Account toAccount = accountsMap.get(toId);
+
+		synchronized (fromAccount) {
+			fromAccount.withdraw(amount);
+
+		}
+		synchronized(toAccount) {
+			toAccount.deposit(amount);
+		}
+	}
+
+	@Override
+	public void transferWithoutLocking(int fromId, int toId, long amount)
+			throws InsufficientFundsException{
+        accountsMap.get(fromId).withdraw(amount);
+		accountsMap.get(toId).deposit(amount);
+
 	}
 
 	@Override
 	public int getNumberOfAccounts(){
-		return accounts.size();
+		return accountsMap.size();
 	}
 
-	public void BankImpl(){
-
-	}
 }
