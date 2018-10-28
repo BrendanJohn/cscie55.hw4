@@ -4,13 +4,12 @@ import java.util.HashMap;
 
 
 public class BankImpl implements Bank {
-	private long totalBalances = 0L;
-
 	private HashMap<Integer, Account> accountsMap = new HashMap<Integer, Account> ();
 
 
 	@Override
 	public long getTotalBalances() {
+		long totalBalances = 0L;
 		for (Account account: accountsMap.values()){
 			totalBalances += account.getBalance();
 		}
@@ -19,8 +18,8 @@ public class BankImpl implements Bank {
 
 	@Override
 	public void addAccount (Account account) throws DuplicateAccountException{
-        if (accountsMap.containsKey(account.getId())){
-        	throw new DuplicateAccountException(account.getId());
+		if (accountsMap.containsKey(account.getId())){
+			throw new DuplicateAccountException(account.getId());
 		}
 		else {
 			accountsMap.put(account.getId(), account);
@@ -36,7 +35,7 @@ public class BankImpl implements Bank {
 			accountsMap.get(fromId).withdraw(amount);
 			accountsMap.get(toId).deposit(amount);
 		}
-		}
+	}
 
 
 	@Override
@@ -57,7 +56,7 @@ public class BankImpl implements Bank {
 	@Override
 	public void transferWithoutLocking(int fromId, int toId, long amount)
 			throws InsufficientFundsException{
-        accountsMap.get(fromId).withdraw(amount);
+		accountsMap.get(fromId).withdraw(amount);
 		accountsMap.get(toId).deposit(amount);
 
 	}

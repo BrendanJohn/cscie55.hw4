@@ -8,14 +8,14 @@ package cscie55.hw4.bank;
  */
 public class AccountImpl implements Account{
     private Long balance = 0L;
-	private int accountId = 0;
+    private int accountId = 0;
 
 
     //default constructor
-	public AccountImpl(){
+    public AccountImpl(){
     }
 
-	public AccountImpl(int id){
+    public AccountImpl(int id){
         this.accountId = id;
     }
 
@@ -25,24 +25,23 @@ public class AccountImpl implements Account{
     }
 
 
-	@Override
+    @Override
     public void deposit(long amount){
         if (amount <= 0){
             throw new IllegalArgumentException("deposit amount must be greater than zero");
         }
         else {
             this.balance = this.balance + amount;
-            System.out.println("Deposit completed successfully");
         }
 
     }
 
-	@Override
+    @Override
     public long getBalance(){
         return this.balance;
     }
 
-	@Override
+    @Override
     public void withdraw(long amount) throws InsufficientFundsException {
         if (amount <= 0){
             throw new IllegalArgumentException("withdraw amount must be greater than zero");
@@ -54,12 +53,11 @@ public class AccountImpl implements Account{
         else
         {
             this.balance = balance - amount;
-            System.out.println("Withdraw completed successfully");
         }
 
     }
 
-	@Override
+    @Override
     public int getId(){
         return this.accountId;
     }
