@@ -197,7 +197,7 @@ public class BankTester
             account.deposit(INITIAL_BALANCE);
             bank.addAccount(account);
         }
-        //assert bank.getTotalBalances() == ACCOUNTS * INITIAL_BALANCE;
+        assert bank.getTotalBalances() == ACCOUNTS * INITIAL_BALANCE;
         return bank;
     }
 
@@ -214,7 +214,7 @@ public class BankTester
     private static final int[] THREADS = new int[]{1, 2, 5, 10, 20};
     private static final int INITIAL_BALANCE = 1000;
     private static final int ACCOUNTS = 100;
-    private static final int TRANSACTIONS = 500000;
+    private static final int TRANSACTIONS = 5000000;
 
     static enum LockStrategy
     {
@@ -244,17 +244,14 @@ public class BankTester
                         // locking strategy.
                         switch (lockStrategy) {
                             case NO_LOCKING:
-                                System.out.println("Begin a no locking transfer");
                                 bank.transferWithoutLocking(from, to, amount);
                                 break;
                             case LOCK_BANK:
-                              System.out.println("Begin a bank locking transfer");
-                               bank.transferLockingBank(from, to, amount);
-                             break;
-                           case LOCK_ACCOUNTS:
-                               System.out.println("Begin an account locking transfer");
-                               bank.transferLockingAccounts(from, to, amount);
-                               break;
+                                bank.transferLockingBank(from, to, amount);
+                                break;
+                            case LOCK_ACCOUNTS:
+                                bank.transferLockingAccounts(from, to, amount);
+                                break;
                         }
                         transferred = true;
                     } catch (InsufficientFundsException e) {

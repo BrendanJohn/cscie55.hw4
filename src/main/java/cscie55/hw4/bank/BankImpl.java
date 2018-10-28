@@ -11,8 +11,10 @@ public class BankImpl implements Bank {
 
 	@Override
 	public long getTotalBalances() {
-        return 0l;
-		//return accountsMap.values().getBalance.stream().mapToLong(Long::longValue).sum();
+		for (Account account: accountsMap.values()){
+			totalBalances += account.getBalance();
+		}
+		return totalBalances;
 	}
 
 	@Override
@@ -34,8 +36,6 @@ public class BankImpl implements Bank {
 			accountsMap.get(fromId).withdraw(amount);
 			accountsMap.get(toId).deposit(amount);
 		}
-
-
 		}
 
 
