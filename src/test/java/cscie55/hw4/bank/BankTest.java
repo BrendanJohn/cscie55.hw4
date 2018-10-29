@@ -1,11 +1,5 @@
 package cscie55.hw4.bank;
 
-import cscie55.hw4.bank.Account;
-import cscie55.hw4.bank.AccountImpl;
-import cscie55.hw4.bank.Bank;
-import cscie55.hw4.bank.BankImpl;
-import cscie55.hw4.bank.DuplicateAccountException;
-import cscie55.hw4.bank.InsufficientFundsException;
 import org.junit.Test;
 
 import java.util.Random;
@@ -33,7 +27,7 @@ import static org.junit.Assert.fail;
  * correctness.
  */
 
-public class BankTester
+public class BankTest
 {
     @Test
     public void testZeroDeposit()
@@ -263,7 +257,7 @@ public class BankTester
             }
         }
 
-        public TestThread(Bank bank, BankTester.LockStrategy lockStrategy, int transactions, int threadId)
+        public TestThread(Bank bank, BankTest.LockStrategy lockStrategy, int transactions, int threadId)
         {
             this.bank = bank;
             this.lockStrategy = lockStrategy;
@@ -274,7 +268,7 @@ public class BankTester
         private static final int MAX_TRANSFER = 100;
 
         private final Bank bank;
-        private final BankTester.LockStrategy lockStrategy;
+        private final BankTest.LockStrategy lockStrategy;
         private final int transactions;
         private final Random random;
     }

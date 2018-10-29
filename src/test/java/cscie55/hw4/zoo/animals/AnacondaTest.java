@@ -7,7 +7,7 @@ import static org.junit.Assert.fail;
 
 import static cscie55.hw4.utils.NumUtil.getRandomBetween;
 
-public class AnacondaTester
+public class AnacondaTest
 {
 
     // here, I am using each of the 4 defined constructors
