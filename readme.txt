@@ -8,9 +8,9 @@ Some classed I crated to solve this assignment are AccounImpl and BankImpl. Acco
 
 In order to run the unit tests, try the following:
 1)unzip files
-2)navigate to the directory where file: elevator-1.0-SNAPSHOT-tests.jar was saved
-4)then run these commands to execute the unit tests:
-java -jar elevator-1.0-SNAPSHOT-tests.jar cscie55.hw3.elevator.ElevatorTest
-java -jar elevator-1.0-SNAPSHOT-tests.jar cscie55.hw3.zoo.animals.AnimalTes
+2)navigate to the directory location where unzipped
+4)run these commands to execute the unit tests:
+java -jar threads-1.0-SNAPSHOT-tests.jar cscie55.hw4.zoo.animals.AnacondaTest
+java -jar threads-1.0-SNAPSHOT-tests.jar cscie55.hw4.bank.BankTest
 
 Thanks, Brendan Murphy.

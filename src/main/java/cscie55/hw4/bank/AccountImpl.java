@@ -34,7 +34,6 @@ public class AccountImpl implements Account{
     }
 
     /**
-     *
      * deposits an amount to the account
      * throws IllegalArgumentException if deposit it less that or equal to zero
      * @param amount the balance to be deposited
@@ -47,7 +46,6 @@ public class AccountImpl implements Account{
         else {
             this.balance = this.balance + amount;
         }
-
     }
 
     /**
@@ -79,7 +77,7 @@ public class AccountImpl implements Account{
     }
 
     /**
-     * returns the account's id
+     * returns the id of a given account
      */
     @Override
     public int getId(){
