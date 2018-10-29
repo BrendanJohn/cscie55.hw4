@@ -1,7 +1,5 @@
 package cscie55.hw4.zoo.animals;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Python extends Animal {
 
