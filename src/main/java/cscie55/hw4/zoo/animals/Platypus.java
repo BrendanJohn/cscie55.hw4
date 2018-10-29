@@ -1,7 +1,9 @@
 package cscie55.hw4.zoo.animals;
 
 /**
- * Creates a Platypus for the zoo.
+ * Platypus
+ * Brendan Murphy 10/29/2018
+ * HW 4
  */
 public class Platypus extends Animal {
 

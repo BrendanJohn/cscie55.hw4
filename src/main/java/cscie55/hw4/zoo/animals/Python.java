@@ -1,6 +1,10 @@
 package cscie55.hw4.zoo.animals;
 
-
+/**
+ * Python
+ * Brendan Murphy 10/29/2018
+ * HW 4
+ */
 public class Python extends Animal {
 
 	public Python() { // when empty constructor called

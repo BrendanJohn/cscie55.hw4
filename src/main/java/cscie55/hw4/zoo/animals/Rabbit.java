@@ -7,7 +7,9 @@ import cscie55.hw4.zoo.iface.Speakable;
 import java.util.ArrayList;
 
 /**
- * Rabbit.java
+ * Rabbit
+ * Brendan Murphy 10/29/2018
+ * HW 4
  */
 public class Rabbit extends Animal implements Eatable, Speakable, Playable {
     /**

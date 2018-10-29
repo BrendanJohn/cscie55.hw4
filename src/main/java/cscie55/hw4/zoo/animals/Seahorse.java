@@ -11,9 +11,10 @@ import java.util.List;
 import java.util.ArrayList;
 
 /**
-* Seahorse class provides information about Seahorse Animals<p>
-* currently provides no error checking
-*/
+ * Seahorse
+ * Brendan Murphy 10/29/2018
+ * HW 4
+ */
 public class Seahorse extends Animal{
     //Seahorse specific fields
     private String gender;

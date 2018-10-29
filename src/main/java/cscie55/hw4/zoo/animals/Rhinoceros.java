@@ -6,7 +6,9 @@ import cscie55.hw4.zoo.iface.Speakable;
 import java.util.ArrayList;
 
 /**
- * Rhinoceros which has favorite foods, an age, and genera
+ * Rhinoceros
+ * Brendan Murphy 10/29/2018
+ * HW 4
  */
 public class Rhinoceros extends Animal implements Playable, Speakable {
     /**
